@@ -1,0 +1,417 @@
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="renderer" content="webkit" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="decription" content="" />
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" type="text/css" href="./xxyxy_xx/css/login_cug.css?v=1.3">
+  <link rel="stylesheet" type="text/css" href="./xxyxy_xx/css/camera.css?v=1">
+  <script type="text/javascript" src="./xxyxy_xx/js/jquery-1.8.3.min.js?v=1"></script>
+  <script type="text/javascript" src="./xxyxy_xx/js/jquery.cookie.js"></script>
+  <script type="text/javascript" src="./xxyxy_xx/js/jquery.easing.1.3.js?v=1"></script>
+  <script type="text/javascript" src="./xxyxy_xx/js/camera1.3.4.js?v=1"></script>
+  
+  <title>统一身份认证系统</title>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: #09f;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    #back_to_camera {
+      background: rgba(255, 255, 255, .9);
+      clear: both;
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .fluid_container {
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: 0;
+    }
+
+    #camera_wrap_4 {
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      margin-bottom: 0 !important;
+      position: fixed;
+      right: 0;
+      top: 0;
+    }
+
+    .camera_bar {
+      z-index: 2;
+    }
+
+    .camera_thumbs {
+      margin-top: -100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .camera_thumbs_cont {
+      border-radius: 0;
+      -moz-border-radius: 0;
+      -webkit-border-radius: 0;
+    }
+
+    .camera_overlayer {
+      opacity: .1;
+    }
+    #errormsg {
+    position: absolute;
+    top: 179px;
+    left: 113px
+    }
+    .appDownLoad {
+   	 position: absolute;
+   	 bottom:-5px;
+   	 left:20px;
+   	 color:#666666;
+   	 cursor:pointer;
+    }
+    .appDownLoad img{
+    display:none;
+    position: absolute;
+    left: -284px;
+    top: -131px;
+    }
+    .appDownLoad:hover {
+    color:#2379bc
+    }
+     .appDownLoad:hover img {
+     display:block;
+     }
+  </style>
+</head>
+
+<body class="fluid_container" id="container_bg" style="height: 100%;">
+  <div class="camera_wrap camera_emboss pattern_1" id="camera_wrap_4">
+    <div data-thumb="./xxyxy_xx/image/login_container_bg_01.jpg" data-src="./xxyxy_xx/image/login_container_bg_01.jpg"></div>
+    <div data-thumb="./xxyxy_xx/image/login_container_bg_02.jpg" data-src="./xxyxy_xx/image/login_container_bg_02.jpg"></div>
+    <div data-thumb="./xxyxy_xx/image/login_container_bg_03.jpg" data-src="./xxyxy_xx/image/login_container_bg_03.jpg"></div>
+    <div data-thumb="./xxyxy_xx/image/login_container_bg_04.jpg" data-src="./xxyxy_xx/image/login_container_bg_04.jpg"></div>
+	 <div data-thumb="./xxyxy_xx/image/login_container_bg_05.jpg" data-src="./xxyxy_xx/image/login_container_bg_05.jpg"></div>
+	  <div data-thumb="./xxyxy_xx/image/login_container_bg_06.jpg" data-src="./xxyxy_xx/image/login_container_bg_06.jpg"></div>
+	   <div data-thumb="./xxyxy_xx/image/login_container_bg_07.jpg" data-src="./xxyxy_xx/image/login_container_bg_07.jpg"></div>
+  </div>
+    <div id="login_main_conatiner" class="login_container_box">
+      <div id="login_container_box" class="login_conatiner">
+        <div class="shadow-bar">
+          <div class="floor1">
+            <div class="logo">
+              <a class="login_logo_bg" href="javascript:;" title="新乡医学院">
+              </a>
+              <span class="title">i新医･统一身份认证平台<img src="./xxyxy_xx/image/tips.png"/></span>
+            </div>
+          </div>
+        </div>
+        <div class="floor2">
+          <div class="content_login_box">
+            <div class="login_box_up">
+              <div class="login_box_tab">
+                 <a id="password_login" class="active">账号登录</a>
+                <a id="phone_login">手机登录</a>
+                <a id="qrcode_login">二维码登录</a>
+              </div>
+              
+              <div id="login_content" class="tabContent active"></div>
+              <div class="tabContent phone">
+                <div class="row" style="height:17px;margin: 0px 0px 0px 21px;font-size:14px;"></div>
+                <input type="text" class="login_box_input" placeholder="请输入手机号" id="phoneNum">
+                 <div class="tip_1 tip">请输入手机号！</div>
+                <div class="vCode">
+                  <input type="text" class="login_box_input" placeholder="短信验证码" id="messageCode">
+                  <a href="javascript:;" id="getCode">点击获取</a>
+                </div>
+                <div class="tip_2 tip">请输入验证码！</div>
+                <div id="phoneMsg"></div>
+                <div class="btnGroup">
+                  <a href="javascript:;" onclick="messageLogin()">登录</a>
+                  <a href="javascript:;" id="reset" onclick="reset()">重置</a>
+                </div>
+                 <div class="tsxx">pc端登录智慧校园，在“个人中心”-“信息维护”中绑定手机号后，方可使用该功能。</div>
+              </div>
+              <div class="tabContent">二维码登录</div>
+            
+            </div>
+          </div>
+          <div class="toggle_btn off" name="0"><span class="minus"></span></div>
+        </div>
+      </div>
+    </div>
+    
+    <footer id="footer">
+      <div class="login_footer">
+        <span class="left">系统维护：网络与信息中心</span>
+        <span class="right">联系电话：0373-3831450 邮箱：xxh@xxmu.edu.cn</span>
+      </div>
+    </footer>
+    <p style="display:none;"></p>
+  <script type="text/javascript" src="./xxyxy_xx/js/login.js?v=1.3"></script>
+  <script id="password_template" type="text/html">
+<form id="fm1" action="/cas/login" method="post">
+							
+							<div class="row" style="height:20px;margin: 5px 0px 0px 21px;font-size:14px;">
+							</div>
+	                        <input type="text" class="login_box_input" id="un" name="username" tabindex="1" style="margin-top:5px;"  autocomplete="off"  placeholder="职工号/学号"/>
+	                        
+							<input type="password" name="password" class="login_box_input" id="pd" tabindex="2" autocomplete="off" placeholder='输入密码'/>
+							<div class="down_link_choice">
+								<input type="checkbox" class="login_box_checkbox" name="rememberName" id ="rememberName"/>
+								<span class="login_box_checkbox_label" id="rememberPwd" checked>记住密码</span>
+								<label id="logining"
+								style="color: #098B65; margin-left: 70px; display: none;">登录中.</label>
+	                            <a href="http://cas.xxmu.edu.cn/authentication/authentication/views/userinfo/xxyxyFindPassword.html" class="login_box_psd">找回密码</a>
+	                        </div>
+							<span class="landing_btn_bg">
+								<input type="button" id="index_login_btn" class="login_box_landing_btn" onclick="tirgLog()"/>
+								登&nbsp;&nbsp;录
+							<input class="qy-log-btn is-on"
+								accesskey="l" value="登  录" tabindex="4" type="hidden"
+								onclick="loginIdsAndCas1()" id="login" />
+								<!-- iS25lCBVkERAwbLuvLT+5g== 手机登陆-->
+							<input type="hidden" id="secret" name="secret" value="" />
+							<input type="hidden" name="lt" value="LT-101417-DrQvyZUx6vdcaXtSzYb0yMBP2XYckG-jinghua" />
+							<input type="hidden" name="execution" value="e132s1" />
+							<input type="hidden" name="_eventId" value="submit" />
+							</span>
+						
+	                    <div class="login_box_down">
+	                        <!--<p class="new_student">温馨提示：本科生登录账号为11位学号（2019100****）、研究生为10位学号、教职工为6位工号，初始密码为身份证号后6位，注意x为小写。 需要按照流程补充和确认手机号码信息，登陆成功以后请尽快修改密码；绑定微信号以后可以通过微信扫码登陆。</p>-->
+							<p class="new_student" style="position:relative;margin-top:5px;">360浏览器请使用极速模式
+                            	<a class="open_360" id="open_360">(如何使用?)
+                                	<span class="b_360" id="open_360_img"><img src="./xxyxy_xx/image/open360fast.png" width="826" height="170"></span>
+                            	</a>
+                        	</p>
+                        	<p class="browser">
+                            	<span class="left">建议浏览器：</span>
+                            	<a style="margin-left:0;" class="ie_pic" target="_blank" href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie">IE10+</a>
+                            	<a class="firefox_pic" target="_blank" href="http://www.firefox.com.cn/download/">火狐</a>
+                            	<a class="google_pic" target="_blank" href="https://www.google.cn/chrome/">谷歌</a>
+                        	</p>
+							<div class="appDownLoad">APP下载<img src="./xxyxy_xx/image/appDownload.png"/></div>
+	                    </div>
+						  </form>
+	</script>
+  <script>
+    jQuery(function () {
+      jQuery('#camera_wrap_4').camera({
+        height: 'auto',//高度
+        hover: false,//鼠标经过幻灯片时暂停(true, false)
+        //imagePath: 图片的目录
+        loader: 'none',//加载图标(pie, bar, none)
+        //loaderColor: 加载图标颜色( '颜色值,例如:#eee' )
+        //loaderBgColor: 加载图标背景颜色
+        loaderOpacity: '.8',//加载图标的透明度( '.8'默认值, 其他的可以写 0, .1, .2, .3, .4, .5, .6, .7, .8, .9, 1 )
+        loaderPadding: '2',//加载图标的大小( 填数字,默认为2 )
+        navigation: false,//左右箭头显示/隐藏(true, false)
+        navigationHover: false,//鼠标经过时左右箭头显示/隐藏(true, false)
+        pagination: false,//是否显示分页(true, false)
+        playPause: false,//暂停按钮显示/隐藏(true, false)
+        pauseOnClick: false,//鼠标点击后是否暂停(true, false)
+        portrait: false,//显示幻灯片里所有图片的实际大小(true, false)
+        thumbnails: false,//是否显示缩略图(true, false)
+        time: 4000,// 幻灯片播放时间( 填数字 )
+        //transPeriod: 4000,//动画速度( 填数字 )
+        // imagePath: '../images/',
+        thumbnails: false
+      });
+    });
+  </script>
+  
+   <script>
+	if (self != top) {
+		//打开自己网站的页面
+		window.top.location.replace(self.location);
+	}
+
+	$(function() {
+
+        $(document).keydown(function (e) {
+            //当按下按键时
+            if (e.which == 13) {
+                //.which属性判断按下的是哪个键，回车键的键位序号为13
+                $("#login").trigger("click");
+            }
+        });
+
+
+
+		var msg = $("#errormsg").text();
+		if (msg == "密码错误.") {
+			//密码错误，只保留账号信息，不保留密码
+			// 需要加个判断用户名不为空时候才把用户名赋值
+			var username = $.cookie('username');
+			if (null != username && "" != username && "null" != username) {
+			$("#un").val(username);
+			$.cookie('password', "");
+			}
+		} else {
+			var username = $.cookie('username');
+			var password = $.cookie('password');
+			if (null != username && "" != username && "null" != username
+					&& null != password && "null" != password) {
+				$("#un").val($.cookie('username'));
+				$("#pd").val($.cookie('password'));
+				$("#rememberName").attr("checked","checked");
+			} else {
+				$("#un").val("");
+				$("#pd").val("");
+				/*$("#rememberName").attr("checked","false");*/
+			}
+		}
+
+	});
+
+	//是否同步登陆ids和cas1.0
+	var isLoginIdsAndCas1 = false;
+	//代理点击登录
+	function tirgLog() {
+		$("#login").trigger("click");
+	}
+	/**
+	 *登陆金致和cas1.0
+	 */
+	function loginIdsAndCas1() {
+		$("#logining").show();
+		setInterval("logining()", 1000);
+		var username = $("#un").val();
+		var password = $("#pd").val();
+		if ($('#rememberName').prop('checked')) {
+			//选中设置用户名密码
+			$.cookie('username', username, {
+				expires : 7
+			});
+			$.cookie('password', password, {
+				expires : 7
+			});
+		} else{
+			//未选中将cookie清空
+			$.cookie('username', null);
+			$.cookie('password', null);
+		}
+		$.ajax({
+			url : "/cas/casCreateCiphertextController",
+			type : "POST",
+			async : false,
+			data : {
+				username : username,
+				password : password,
+				openid : '12345678'
+			},
+			success : function(json) {
+				var obj = $.parseJSON(json);
+				if (obj.success) {
+					//缓存
+					window.name = obj.obj;
+				}
+				
+			}
+		});
+		if (isLoginIdsAndCas1) {
+			try {
+				if (null != username && $.trim(username).length > 0
+						&& null != password && $.trim(password).length > 0) {
+					//cas1.0
+					var cas1 = "http://platform.zzuli.edu.cn/cas/ajax_login.jsp?username="
+							+ username + "&password=" + password;
+					$("body").append(
+							"<iframe id='cas1' onload='loginSucess(\"cas1\")' src='"
+									+ cas1
+									+ "' style='display: none;'></iframe>");
+
+					//ids
+					var idsurl = "http://my.zzuli.edu.cn/userPasswordValidate.portal?Login.Token1="
+							+ username + "&Login.Token2=" + password;
+					$("body").append(
+							"<iframe id='ids' onload='loginSucess(\"ids\")' src='"
+									+ idsurl
+									+ "' style='display: none;'></iframe>");
+				}
+			} catch (err) {
+				console.log(err);
+			}
+		} else {
+			$("#fm1").submit()
+		}
+	}
+
+	/**
+	 * 登陆成功后登陆cas2.0
+	 * user 判断调用者
+	 */
+	var count = 0;
+	function loginSucess(user) {
+		count++;
+		//alert(user + "【 " + count + "】");
+		if (count == 2) {
+			setTimeout(function() {
+				$("#fm1").submit();
+			}, 500);
+		}
+	}
+
+	/**
+	 * 登陆中动画
+	 */
+	function logining() {
+		var val = $("#logining").text();
+		val = val.replace("登录中", "");
+		var len = val.length;
+		if (len >= 3) {
+			$("#logining").text("登录中.");
+		} else {
+			$("#logining").text($("#logining").text() + ".");
+		}
+	}
+</script>
+</body>
+
+</html>
+	
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐播放</title>
+</head>
+<style>
+    #btn {
+        width: 30px;
+        height: 30px;
+        background: url("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3602163562,639853602&fm=26&gp=0.jpg") no-repeat;
+        background-size: 100% 100%;
+        -webkit-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -ms-background-size: 100% 100%;
+        -o-background-size: 100% 100%;
+        position: fixed;
+        top: 2.1866666666666665rem;
+        right: 0.22rem;
+        z-index: 6666;
+    }
+</style>
+
+<body>
+    <div id="btn">
+        <audio id="audio-player" ref="audio" preload="preload" autoplay="autoplay" loop="loop">
+            <source src="http://music.163.com/song/media/outer/url?id=1840182219" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        var myAuto = document.getElementById('myaudio');
+        myAuto.play();
+    })
+</script>
+</html>
